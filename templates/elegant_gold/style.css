@@ -1,0 +1,159 @@
+/* Google Fonts: Premium Typography */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&family=Great+Vibes&display=swap');
+
+:root {
+    --bg-cream: #FDFBF7;
+    --bg-beige: #F4EBE1;
+    --gold-primary: #C5A880;
+    --gold-dark: #9B825E;
+    --text-dark: #2C2A29;
+    --text-muted: #6C665E;
+    --glass-bg: rgba(253, 251, 247, 0.7);
+    --glass-border: rgba(197, 168, 128, 0.3);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Typography Classes */
+.font-serif { font-family: 'Cormorant Garamond', serif; }
+.font-accent { font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: var(--gold-primary); }
+.text-gold { color: var(--gold-primary); }
+
+/* Glassmorphism Utility */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+/* Loading Screen */
+#loading-screen {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--bg-cream); z-index: 10000;
+    display: flex; justify-content: center; align-items: center;
+    transition: opacity 0.8s ease;
+}
+.loader { width: 50px; height: 50px; border: 3px solid var(--bg-beige); border-top-color: var(--gold-primary); border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Opening Screen */
+#opening-screen {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+    background: linear-gradient(rgba(44, 42, 41, 0.6), rgba(44, 42, 41, 0.6)), url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=2000&auto=format&fit=crop') center/cover;
+    color: white; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    z-index: 9999; transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.slide-up { transform: translateY(-100%); }
+
+/* Hero Section */
+.hero {
+    height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    background: linear-gradient(to bottom, rgba(253, 251, 247, 0.3), var(--bg-cream)), url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2000&auto=format&fit=crop') center/cover fixed;
+    text-align: center; position: relative;
+}
+
+/* Buttons */
+/* Buttons */
+.btn-premium {
+    display: inline-block; 
+    text-decoration: none; 
+    background-color: var(--gold-primary); 
+    color: white !important; 
+    border-radius: 30px;
+    padding: 12px 30px; 
+    border: none; 
+    font-weight: 500; 
+    letter-spacing: 1px;
+    transition: all 0.3s ease; 
+    box-shadow: 0 4px 15px rgba(197, 168, 128, 0.4);
+    margin-top: 15px; 
+}
+.btn-premium:hover { 
+    background-color: var(--gold-dark); 
+    transform: translateY(-3px); 
+    color: white !important; 
+    box-shadow: 0 6px 20px rgba(197, 168, 128, 0.6);
+}
+.btn-premium i {
+    margin-right: 8px; /* Memberi jarak antara ikon dan teks */
+}
+
+/* Countdown */
+.countdown-box {
+    background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px);
+    border: 1px solid var(--gold-primary); border-radius: 15px; padding: 15px; width: 80px;
+}
+.countdown-box h3 { margin: 0; font-family: 'Cormorant Garamond', serif; color: var(--text-dark); }
+
+/* Floating Music */
+#music-control {
+    position: fixed; bottom: 30px; right: 30px; background: var(--glass-bg); backdrop-filter: blur(5px);
+    color: var(--gold-primary); border: 1px solid var(--gold-primary); border-radius: 50%;
+    width: 55px; height: 55px; z-index: 1000; cursor: pointer; display: flex; justify-content: center; align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s;
+}
+.spin-slow { animation: spin 4s linear infinite; }
+
+/* Timeline (Love Story) */
+.timeline { position: relative; max-width: 800px; margin: 0 auto; padding: 40px 0; }
+.timeline::after { content: ''; position: absolute; width: 2px; background: var(--gold-primary); top: 0; bottom: 0; left: 50%; margin-left: -1px; }
+.timeline-item { padding: 10px 40px; position: relative; background: inherit; width: 50%; }
+.timeline-item::after { content: ''; position: absolute; width: 16px; height: 16px; right: -8px; background: var(--bg-cream); border: 3px solid var(--gold-primary); top: 15px; border-radius: 50%; z-index: 1; }
+.left { left: 0; text-align: right; }
+.right { left: 50%; }
+.right::after { left: -8px; }
+
+/* Masonry Gallery */
+.masonry-grid { column-count: 2; column-gap: 15px; }
+.masonry-grid img { width: 100%; border-radius: 10px; margin-bottom: 15px; cursor: pointer; transition: transform 0.3s; }
+.masonry-grid img:hover { transform: scale(1.03); }
+@media (min-width: 768px) { .masonry-grid { column-count: 3; } }
+
+/* Scrollbar Custom */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-cream); }
+::-webkit-scrollbar-thumb { background: var(--gold-primary); border-radius: 10px; }
+/* ======== PERBAIKAN KHUSUS TAMPILAN HP (MOBILE RESPONSIVE) ======== */
+@media (max-width: 768px) {
+    /* Mengecilkan font di layar pembuka */
+    #opening-screen h1 { font-size: 2.2rem !important; }
+    #opening-screen h2 { font-size: 1.3rem !important; }
+    
+    /* Mengecilkan judul-judul section & nama di hero */
+    .display-1 { font-size: 2.2rem !important; }
+    .display-5 { font-size: 1.8rem !important; }
+    .font-accent { font-size: 2.8rem !important; }
+    
+    /* Merapikan jarak padding di HP agar tidak terlalu lebar */
+    section { padding: 40px 15px !important; }
+    
+    /* Merapikan kotak kartu (seperti RSVP dan Amplop) */
+    .glass-card { padding: 25px 15px !important; margin: 0 10px; }
+    
+    /* Memastikan gambar QRIS tidak keluar batas layar */
+    .glass-card img { max-width: 100% !important; height: auto; }
+
+    /* Merapikan Timeline (Love Story) di HP agar tidak tertumpuk */
+    .timeline::after { left: 20px; }
+    .timeline-item { width: 100%; padding-left: 50px; padding-right: 15px; text-align: left !important; }
+    .right { left: 0; }
+    .timeline-item::after { left: 11px; top: 15px; }
+
+    /* MERAPIKAN TOMBOL GOOGLE MAPS DI HP */
+    .btn-premium {
+        padding: 10px 20px !important;
+        font-size: 0.9rem !important;
+        width: auto !important;
+        display: inline-block !important;
+        margin-top: 15px !important;
+    }
+}
